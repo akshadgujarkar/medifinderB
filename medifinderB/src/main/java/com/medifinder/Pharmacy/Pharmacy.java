@@ -6,6 +6,8 @@ import jakarta.persistence.Id;
 @Entity
 public class Pharmacy {
 	
+	@Id
+	private String id;
 	private String pharmacyName;
 	private String userName;
 	private int liscenceNo;
@@ -17,9 +19,9 @@ public class Pharmacy {
 	private String owner;
 	private String password;
 	private String email;
-	private String  status="PENDING";
+	private String  status;
 	
-	public Pharmacy(int id, String pharmacyName, String userName, int liscenceNo, String area, String completeAddress,
+	public Pharmacy(String id, String pharmacyName, String userName, int liscenceNo, String area, String completeAddress,
 			long phoneNo, String openingHour, String closingHour, String owner, String password, String email,
 			String status) {
 		super();
@@ -37,14 +39,31 @@ public class Pharmacy {
 		this.email = email;
 		this.status = status;
 	}
+	
+	public Pharmacy(String pharmacyName, String userName, int liscenceNo, String area, 
+            String completeAddress, long phoneNo, String openingHour, 
+            String closingHour, String owner, String password, 
+            String email, String status) {
+this.pharmacyName = pharmacyName;
+this.userName = userName;
+this.liscenceNo = liscenceNo;
+this.area = area;
+this.completeAddress = completeAddress;
+this.phoneNo = phoneNo;
+this.openingHour = openingHour;
+this.closingHour = closingHour;
+this.owner = owner;
+this.password = password;
+this.email = email;
+this.status = status;
+}
 
-	@Id
-	private int id;
-	public int getId() {
+	
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
