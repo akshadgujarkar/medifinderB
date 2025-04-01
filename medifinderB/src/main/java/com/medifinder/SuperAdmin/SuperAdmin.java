@@ -5,6 +5,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.medifinder.Admin.Admin;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,7 +24,7 @@ public class SuperAdmin {
 	    private String phoneNo;
 	    private String username;
 
-	    @OneToMany(mappedBy = "superAdmin")
+	    @OneToMany(mappedBy = "superAdmin", cascade = CascadeType.ALL)
 	    @JsonManagedReference("superAdmin-admin")
 	    private List<Admin> admins;
 

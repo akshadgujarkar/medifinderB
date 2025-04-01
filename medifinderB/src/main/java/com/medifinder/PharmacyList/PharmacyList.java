@@ -9,6 +9,7 @@ import com.medifinder.Location.Location;
 import com.medifinder.Medicine.Medicine;
 import com.medifinder.Registration.Registration;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -33,11 +34,11 @@ public class PharmacyList {
 	@JsonBackReference("registration-pharmacy")
 	private Registration registration;
 
-    @OneToMany(mappedBy = "pharmacyList")
+    @OneToMany(mappedBy = "pharmacyList", cascade = CascadeType.ALL)
     @JsonManagedReference("pharmacyList-admin")
     private List<Admin> admins;
     
-    @OneToMany(mappedBy = "pharmacyList")
+    @OneToMany(mappedBy = "pharmacyList", cascade = CascadeType.ALL)
     @JsonManagedReference("pharmacy-medicine")
     private List<Medicine> medicines;
 

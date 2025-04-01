@@ -5,6 +5,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.medifinder.PharmacyList.PharmacyList;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,7 +26,7 @@ public class Registration {
     private String owner;
     private String password;
     
-    @OneToMany(mappedBy = "registration")
+    @OneToMany(mappedBy = "registration", cascade = CascadeType.ALL)
     @JsonManagedReference("registration-pharmacy")
     private List<PharmacyList> pharmacyLists;
 	

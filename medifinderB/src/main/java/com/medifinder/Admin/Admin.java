@@ -10,22 +10,22 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-
-@Entity
-public class Admin {
-	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-	@ManyToOne
-	@JoinColumn(name = "s_id", nullable = false)
-	@JsonBackReference("superAdmin-admin")
-	private SuperAdmin superAdmin;
-
-    @ManyToOne
-    @JoinColumn(name = "pharmacylist_id", nullable = false)
-    @JsonBackReference("pharmacyList-admin")
-    private PharmacyList pharmacyList;
+		
+		@Entity
+		public class Admin {
+			@Id
+		    @GeneratedValue(strategy = GenerationType.AUTO)
+		    private Long id;
+		 
+			@ManyToOne
+			@JoinColumn(name = "s_id", nullable = false)
+			@JsonBackReference("superAdmin-admin")
+			private SuperAdmin superAdmin;
+		
+		    @ManyToOne
+		    @JoinColumn(name = "pharmacylist_id", nullable = false)
+		    @JsonBackReference("pharmacyList-admin")
+		    private PharmacyList pharmacyList;
 
 	public Long getId() {
 		return id;
